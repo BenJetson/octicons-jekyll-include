@@ -31,13 +31,17 @@ plugins:
   - jekyll-readme-index
 
 header_pages:
-  - about.md
-  - demo.md
+  - icons.html
 
 readme_index:
   enabled: true
   remove_originals: false
   with_frontmatter: true
+
+collections:
+  octicons:
+    output: true
+    sort_by: icon_id
 
 defaults:
   - scope:
@@ -45,9 +49,16 @@ defaults:
     values:
       layout: default
   - scope:
-      path: "README.md"
+      path: _octicons
+    values:
+      layout: icon
+      permalink: /icon/:name
+  - scope:
+      path: README.md
     values:
       layout: home
+
+octicon_classes: null
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
