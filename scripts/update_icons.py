@@ -39,8 +39,8 @@ class Icon:
     def __init__(self, icon_id, name):
         self.icon_id = icon_id
         self.name = name if icon_id not in OVERRIDES else OVERRIDES[icon_id]
-        self.svg_16 = ""
-        self.svg_24 = ""
+        self.svg_16 = "null"
+        self.svg_24 = "null"
 
     def encode_icon(self, svg_data):
         svg_bytes = svg_data.encode("utf-8")
