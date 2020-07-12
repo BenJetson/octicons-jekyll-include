@@ -1,0 +1,137 @@
+---
+layout: default
+---
+
+<style>
+  .no-icon {
+    color: red;
+  }
+  th {
+    width: 70px;
+  }
+  .copy-container {
+    width: 55px;
+    padding: 5px;
+  }
+  .copy-container button {
+    display: block;
+    margin: 0 auto;
+    width: 45px;
+  }
+</style>
+
+<h2>Icon Metadata</h2>
+<p><a href="#">Permalink</a></p>
+<table>
+  <tr>
+    <th>Name</th>
+    <td colspan="2">{{page.name}}</td>
+  </tr>
+  <tr>
+    <th>ID</th>
+    <td>
+      <code id="icon_id">{{page.icon_id}}</code>
+    </td>
+    <td class="copy-container">
+      <button aria-label="Copy" onclick="copyTextFrom(this, 'icon_id');">
+        Copy
+      </button>
+    </td>
+  </tr>
+</table>
+
+<h3>Size 16</h3>
+
+{% if page.icon_16 %}
+<table>
+  <tr>
+    <th>Preview</th>
+    <td colspan="2" class="icon-preview">
+      {% include octicon.html icon_id=page.icon_id size="16" %}
+    </td>
+  </tr>
+  <tr>
+    <th>Include</th>
+    <td>
+      <code id="include_16">
+        {% raw %}{%{% endraw %} include octicon.html icon_id="{{page.icon_id}}"
+        size="16" {% raw %}%}{% endraw %}
+      </code>
+    </td>
+
+    <td class="copy-container">
+      <button aria-label="Copy" onclick="copyTextFrom(this, 'include_16');">
+        Copy
+      </button>
+    </td>
+  </tr>
+</table>
+{% else %}
+<p class="no-icon">Not available!</p>
+{% endif %}
+
+<h3>Size 24</h3>
+
+{% if page.icon_24 %}
+<table>
+  <tr>
+    <th>Preview</th>
+    <td colspan="2" class="icon-preview">
+      {% include octicon.html icon_id=page.icon_id size="24" %}
+    </td>
+  </tr>
+  <tr>
+    <th>Include</th>
+    <td>
+      <code id="include_24">
+        {% raw %}{%{% endraw %} include octicon.html icon_id="{{page.icon_id}}"
+        size="24" {% raw %}%}{% endraw %}
+      </code>
+    </td>
+    <td class="copy-container">
+      <button aria-label="Copy" onclick="copyTextFrom(this, 'include_24');">
+        Copy
+      </button>
+    </td>
+  </tr>
+</table>
+{% else %}
+<p class="no-icon">Not available!</p>
+{% endif %}
+
+<script>
+  function copyTextFrom(button, node) {
+    node = document.getElementById(node);
+
+    if (document.body.createTextRange) {
+      const range = document.body.createTextRange();
+      range.moveToElementText(node);
+      range.select();
+    } else if (window.getSelection) {
+      const selection = window.getSelection();
+      const range = document.createRange();
+      range.selectNodeContents(node);
+      selection.removeAllRanges();
+      selection.addRange(range);
+    } else {
+      alert(
+        "Sorry, your browser does not support text selection. " +
+          "Please copy the text manually."
+      );
+      return;
+    }
+
+    if (!document.execCommand("copy")) {
+      alert(
+        "Sorry, your browser does not support automatic text copying. " +
+          "Please copy the text manually."
+      );
+      return;
+    }
+
+    button.innerHTML = "✅";
+    window.setTimeout(function () {
+      button.innerHTML = "Copy";
+    }, 1200);
+  }
+</script>
