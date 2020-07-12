@@ -54,10 +54,6 @@ defaults:
     values:
       layout: icon
       permalink: /icon/:name
-  - scope:
-      path: README.md
-    values:
-      layout: home
 
 octicon_classes: null
 
