@@ -1,0 +1,48 @@
+---
+title: All Icons
+---
+
+<style>
+  .icon-preview {
+    text-align: center;
+  }
+  .no-icon {
+    color: red;
+  }
+  @media only screen and (max-width: 600px) {
+    .hide-mobile {
+      display: none;
+    }
+  }
+</style>
+
+<h2>All Icons</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th class="hide-mobile">ID</th>
+      <th>Name</th>
+      <th>Preview</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for icon in site.octicons %}
+    <tr>
+      <td class="hide-mobile"><code>{{icon.icon_id}}</code></td>
+      <td><a href="/icon/{{icon.icon_id}}">{{icon.name}}</a></td>
+      {% if icon.icon_24 %}
+      <td class="icon-preview">
+        {% include octicon.html icon_id=icon_id size="24" %}
+      </td>
+      {% elsif icon.icon_16 %}
+      <td class="icon-preview">
+        {% include octicon.html icon_id=icon_id size="16" %}
+      </td>
+      {% else %}
+      <td class="icon-preview no-icon">None</td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
