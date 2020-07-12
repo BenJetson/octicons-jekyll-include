@@ -1,0 +1,29 @@
+{%- assign matches = site.octicons | where:"icon_id",include.icon_id -%}
+{%- assign icon = matches[0] -%}
+{%- assign svg_data = "bad icon id" -%}
+{%- if include.size != "16" and include.size != "24" -%}
+    {%- assign svg_data = "bad icon size" -%}
+{%- else -%}
+    {%- if include.size == "16" and icon.icon_16 -%}
+        {%- assign svg_data = icon.icon_16 -%}
+    {%- elsif include.size == "24" and icon.icon_24 -%}
+        {%- assign svg_data = icon.icon_24 -%}
+    {%- endif -%}
+{%- endif -%}
+{%- assign classes = blank -%}
+{%- if site.octicon_classes -%}
+    {%- assign classes = site.octicon_classes -%}
+{%- endif -%}
+{%- if include.classes -%}
+    {%- if classes -%}
+        {%- assign classes = classes | append: " " -%}
+    {%- endif -%}
+    {%- assign classes = classes | append: include.classes -%}
+{%- endif -%}
+{%- if classes -%}
+    {%- assign classes = classes | prepend: " " -%}
+{%- endif -%}
+<img 
+    src="{{ 'data:image/svg+xml;base64,' | append: svg_data }}"
+    class="octicon octicon-{{include.size}}{{classes}}"
+/>
