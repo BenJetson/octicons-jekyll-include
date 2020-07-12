@@ -7,11 +7,11 @@ which at the time of writing is [not officially supported by GitHub pages][pages
 
 ## How to Use
 
-Coming soon!
+Please see the [documentation](docs).
 
 ## Licensing Information
 
-The code in this repository is available under the [MIT License](LICENSE.md).
+The code in this repository is available under the [MIT License](LICENSE).
 
 The Octicons artwork included in this repository is property of GitHub, sourced from
 the [primer/octicons repository][octicons-repo]. When using GitHub's artwork on your
