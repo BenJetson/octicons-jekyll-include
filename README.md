@@ -1,5 +1,10 @@
 ---
-"GitHub Users": Visit the website for details https://www.bengodfrey.net/octicons-jekyll-include
+"Attention GitHub Users": >-
+  Visit the website for details!
+  https://www.bengodfrey.net/octicons-jekyll-include
+
+  Documentation is here:
+  https://www.bengodfrey.net/octicons-jekyll-include/docs
 ---
 
 # octicons-jekyll-include
