@@ -2,6 +2,7 @@
 "Attention GitHub Users": >-
   Visit the website for documentation and details!
   https://www.bengodfrey.net/octicons-jekyll-include
+title: Home
 ---
 
 # octicons-jekyll-include
