@@ -31,6 +31,8 @@ plugins:
   - jekyll-readme-index
 
 header_pages:
+  - README.md
+  - repo.html
   - docs.md
   - icons.html
 
