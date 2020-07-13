@@ -1,6 +1,6 @@
 {%- assign matches = site.octicons | where:"icon_id",include.icon_id -%}
 {%- assign icon = matches[0] -%}
-{%- assign svg_data = "bad icon id" -%}
+{%- assign svg_data = "unknown error" -%}
 {%- if include.size != "16" and include.size != "24" -%}
     {%- assign svg_data = "bad icon size" -%}
 {%- else -%}
@@ -8,6 +8,10 @@
         {%- assign svg_data = icon.icon_16 -%}
     {%- elsif include.size == "24" and icon.icon_24 -%}
         {%- assign svg_data = icon.icon_24 -%}
+    {%- elsif icon.name -%}
+        {%- assign svg_data = "size not available: " | append: include.size -%}
+    {%- else -%}
+        {%- assign svg_data = "bad icon id" -%}
     {%- endif -%}
 {%- endif -%}
 {%- assign classes = blank -%}
