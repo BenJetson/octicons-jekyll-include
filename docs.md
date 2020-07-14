@@ -18,7 +18,7 @@ your site is hosted elsewhere, it should still work.
 Copy the following files to your site:
 
 - the `_octicons` directory and its contents
-- `_includes/octicon.html`
+- `_includes/octicon`
 
 ## Configuration
 
@@ -37,7 +37,7 @@ To add an icon, simply write a Liquid include like the example below:
 <!-- {% raw %} -->
 
 ```html
-{% include octicon.html icon_id="alert" size="16" %}
+{% include octicon icon_id="alert" size="16" %}
 ```
 
 <!-- {% endraw %} -->
