@@ -198,5 +198,5 @@ This SVG data is then used by the image tag, as part of the source data URI.
 
 [new-ticket]: https://github.com/BenJetson/octicons-jekyll-include/issues/new
 [icon-gallery]: {{site.url}}{{site.baseurl}}/icons
-[so-filters]: https://stackoverflow.com/q/42966641
+[so-filter]: https://stackoverflow.com/q/42966641
 [filter-calc]: https://codepen.io/sosuke/pen/Pjoqqp
