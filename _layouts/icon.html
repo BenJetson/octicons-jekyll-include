@@ -103,6 +103,11 @@ layout: default
 
 <script>
   function copyTextFrom(button, node) {
+    // Text selection logic in this function modified from:
+    //   https://stackoverflow.com/a/987376 [multiple authors]
+    // This function is available under the CC BY-SA 4.0 license:
+    //   https://creativecommons.org/licenses/by-sa/4.0/
+
     node = document.getElementById(node);
 
     if (document.body.createTextRange) {
