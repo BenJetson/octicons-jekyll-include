@@ -55,7 +55,7 @@ defaults:
       path: _octicons
     values:
       layout: icon
-      permalink: /icon/:name
+      permalink: /icons/:name
 
 octicon_classes: null
 
