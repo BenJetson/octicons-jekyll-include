@@ -138,5 +138,65 @@ the icon on include!
 
 Check the [icon gallery][icon-gallery] for a list of valid icon `id`s.
 
+## Colors/Theming
+
+Applying styles to the graphics included in the `data:image/svg` source is not
+as straightforward as styling SVG images directly embedded in your page.
+
+The icons have a black foreground and transparent background by default, as the
+source SVG data for the icons themselves does not specify any styling.
+
+The best way to change the color of these icons is to use CSS filters.
+
+If you simply need to make these icons have a white foreground and keep the
+transparent background, you can apply an `invert(1)` to the icon like so:
+
+```css
+.octicon {
+  filter: invert(1);
+}
+```
+
+If you need to change the color to a specific value, this is more difficult. It
+is possible to create most colors through CSS filters by using some combination
+of `invert`, `sepia`, `saturate`, `hue-rotate`, `brightness`, and `contrast`.
+
+For example, to convert to orange (#FF8C00):
+
+```css
+.octicon {
+  filter: invert(51%) sepia(78%) saturate(1248%) brightness(102%) contrast(105%);
+}
+```
+
+For interested parties, there is a question on Stack Overflow regarding
+[how to transform black into any given color using only CSS filters][so-filter].
+
+This question has spawned a [color filter calculator][filter-calc] to make this
+process easier.
+
+## For Nerds: How This Works
+
+The `update_icons.py` script pulls down the `primer/octicons` repository from
+GitHub and generates a batch of markdown files from the SVG images in the repo.
+
+These markdown files are placed in a Jekyll collection: `_octicons`. Each file
+has four attributes in its front matter:
+
+- `icon_id`: sourced from the filename from the Octicons repo
+- `name`: title case of filename with dashes replaced by space
+  (unless overridden)
+- `icon_16`: base64 encoded string of the SVG image for the size 16 icon, or
+  `null` if it does not exist.
+- `icon_24`: base64 encoded string of the SVG image for the size 24 icon, or
+  `null` if it does not exist.
+
+When doing an include, the include logic searches for a matching icon_id in the
+collection and gets the appropriate base64 encoded SVG data.
+
+This SVG data is then used by the image tag, as part of the source data URI.
+
 [new-ticket]: https://github.com/BenJetson/octicons-jekyll-include/issues/new
 [icon-gallery]: {{site.url}}{{site.baseurl}}/icons
+[so-filters]: https://stackoverflow.com/q/42966641
+[filter-calc]: https://codepen.io/sosuke/pen/Pjoqqp
