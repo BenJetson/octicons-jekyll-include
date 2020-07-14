@@ -37,18 +37,18 @@ To add an icon, simply write a Liquid include like the example below:
 <!-- {% raw %} -->
 
 ```html
-{% include octicon icon_id="alert" size="16" %}
+{% include octicon id="alert" size="16" %}
 ```
 
 <!-- {% endraw %} -->
 
 Simply substitute the desired `icon_id` and `size` to create the icon you want.
 
-### **Parameter** `icon_id`
+### **Parameter** `id`
 
 This parameter is **required**.
 
-The full catalog of available icons and their associated `icon_id`s are
+The full catalog of available icons and their associated `id`s are
 available at the [icon gallery page](icons.html).
 
 ### **Parameter** `size`

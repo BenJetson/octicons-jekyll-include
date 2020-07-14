@@ -1,4 +1,4 @@
-{%- assign matches = site.octicons | where:"icon_id",include.icon_id -%}
+{%- assign matches = site.octicons | where:"icon_id",include.id -%}
 {%- assign icon = matches[0] -%}
 {%- assign svg_data = "unknown error" -%}
 {%- if include.size != "16" and include.size != "24" -%}
