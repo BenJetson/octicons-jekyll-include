@@ -1,4 +1,7 @@
 ---
+"Attention GitHub Users": >-
+  This documentation is intended for reading on the website!
+  https://www.bengodfrey.net/octicons-jekyll-include/docs
 title: Docs
 ---
 
