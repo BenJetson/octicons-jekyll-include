@@ -23,6 +23,19 @@ Copy the following files to your site:
 - the `_octicons` directory and its contents
 - `_includes/octicon`
 
+Declare the `octicons` collection in your Jekyll configuration by adding the
+following lines to `_config.yml`:
+
+```yml
+collections:
+  - octicons
+```
+
+If you have other collections in your site already you will need to merge
+this with your existing `collections` key.
+
+For more information, see the [Jekyll Collections documentation][jklcdoc].
+
 ## Configuration
 
 There is only one global configuration option: `octicons_classes`.
@@ -199,6 +212,7 @@ collection and gets the appropriate base64 encoded SVG data.
 
 This SVG data is then used by the image tag, as part of the source data URI.
 
+[jklcdoc]: https://jekyllrb.com/docs/collections/
 [new-ticket]: https://github.com/BenJetson/octicons-jekyll-include/issues/new
 [icon-gallery]: {{site.url}}{{site.baseurl}}/icons
 [so-filter]: https://stackoverflow.com/q/42966641
